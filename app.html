@@ -1,0 +1,28 @@
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+<div id="app">
+  {{cats[0].size}}
+</div>
+
+<script type="module">
+  const { createApp } = Vue
+
+  const API_URL = `https://cataas.com/api/cats`
+
+  createApp({
+    data: () => ({
+      cats: []
+    }),
+    methods: {
+      async getCats () {
+        const response = await fetch(API_URL)
+        const data = await response.json()
+        
+        this.cats = data.tags
+      }
+    },
+    created() {
+      this.getCats()
+    }
+  }).mount('#app')
+</script>
