@@ -5,11 +5,13 @@
 <div class="container">
   <div v-for="time in times">
     <div class="card">
+      <p class="card-title"><img :src="time.team.logos[0].href" height="100px"></p>
       <p class="card-title">{{ time.team.name }}</p>
       <ul class="card-description">
-      <li>Pontos: {{ time.stats[3].value}}</li>
-      <li>Vitorias: {{ time.stats[7].value}}</li>
-      <li>Posição: {{ time.stats[10].value}}°</li>
+        <li>{{ time.stats[10].value}}° Lugar</li>
+        <li>{{ time.stats[3].value}} Pontos</li>
+        <li>{{ time.stats[7].value}} Vitorias</li>
+        <li>{{ time.stats[5].value}} Gols</li>
       </ul>
     </div>
   </div>
