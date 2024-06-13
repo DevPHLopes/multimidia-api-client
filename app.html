@@ -4,16 +4,7 @@
 <div id="app">
 <div class="container">
   <div v-for="time in times">
-    <div class="card">
-      <p class="card-title"><img :src="time.team.logos[0].href" height="100px"></p>
-      <p class="card-title">{{ time.team.name }}</p>
-      <ul class="card-description">
-        <li>{{ time.stats[10].value}}° Lugar</li>
-        <li>{{ time.stats[3].value}} Pontos</li>
-        <li>{{ time.stats[7].value}} Vitorias</li>
-        <li>{{ time.stats[5].value}} Gols</li>
-      </ul>
-    </div>
+    <card :time="time"></card>
   </div>
 </div>
 </div>
@@ -21,6 +12,8 @@
 
 <script type="module">
   const { createApp } = Vue
+
+  import Card from './components/card.js'
 
   const API_URL = `https://api-football-standings.azharimm.dev/leagues/ita.1/standings?season=2023&sort=asc`
 
@@ -43,6 +36,9 @@
     },
     created() {
       this.getTimes ()
+    },
+    components:{
+      Card
     }
   }).mount('#app')
 </script>
