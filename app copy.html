@@ -1,0 +1,44 @@
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<link rel="stylesheet" href="./assets/style.css">
+
+<div id="app">
+<div class="container">
+  <div v-for="time in times">
+    <card :time="time"></card>
+  </div>
+</div>
+</div>
+
+
+<script type="module">
+  const { createApp } = Vue
+
+  import Card from './components/card.js'
+
+  const API_URL = `http://localhost:3333/times`
+
+  createApp({
+    data: () => ({
+      nome: '',
+      times: []
+    }),
+    methods: {
+      async getTimes () {
+        const response = await fetch(API_URL)
+        const data = await response.json()
+        
+        //console.log(data.data.standings)
+
+        this.nome = data.data.name
+        this.times = data.data.standings
+        console.log(this.times)
+      }
+    },
+    created() {
+      this.getTimes ()
+    },
+    components:{
+      Card
+    }
+  }).mount('#app')
+</script>

@@ -9,12 +9,15 @@ export default {
     template:`
     <div class="card">
       <p class="card-title"><img :src="time.team.logos[0].href" height="100px"></p>
-      <p class="card-title">{{ time.team.name }}</p>
+      <p class="card-title">{{ times.nome }}</p>
       <ul class="card-description">
-        <li>{{ time.stats[10].value}}° Lugar</li>
-        <li>{{ time.stats[3].value}} Pontos</li>
-        <li>{{ time.stats[7].value}} Vitorias</li>
-        <li>{{ time.stats[5].value}} Gols</li>
+        <li>{{ times.idade</li>
+        <li>{{ times.estaduais</li>
+        <li>{{ times.brasileiros</li>
+        <li>{{ times.libertadores</li>
+        <li>{{ times.copabrasil</li>
+        <li>{{ times.sulamericana</li>
+        <li>{{ times.mundiais</li>
       </ul>
     </div>`
 }
